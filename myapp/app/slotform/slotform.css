@@ -49,8 +49,8 @@
   
   .radio-group {
     display: flex;
-    justify-content: space-between; /* Adjusted to spread out radio buttons */
-    gap: 20px; /* Added more spacing between radio buttons */
+    justify-content: flex-start; /* Align items to the left */
+    gap: 10px; /* Narrow gap for better spacing */
     margin: 5px 0 15px;
   }
   
@@ -59,6 +59,14 @@
     display: flex;
     align-items: center;
     gap: 5px;
+  }
+  .radio-group input[type="radio"] {
+    order: 1; /* Ensures the radio button appears after the text */
+    margin-left: 5px; /* Slight spacing to avoid overlap with text */
+  }
+  
+  .radio-group label:first-child {
+    margin-right: 10px; /* Adds spacing between the Yes and No labels */
   }
   
   form button {

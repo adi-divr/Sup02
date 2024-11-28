@@ -1,9 +1,9 @@
 "use client";
 
-import AdminPageView from "./AdminDashboard";
+import AdminView from "./AdminDashboard";
 
-const AdminView = () => {
-  return <AdminPageView />;
+const AdminViewPage = () => {
+  return <AdminView />;
 };
 
-export default AdminView;
+export default AdminViewPage;

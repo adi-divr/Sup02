@@ -1,0 +1,104 @@
+.admin-container {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  h2 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  .booking-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 900px; /* Maximum width for larger screens */
+  }
+  
+  .booking-card {
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-container {
+    width: 100%;
+    background-color: rgba(123, 123, 123, 0.1);
+    color:black;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .details {
+    text-align: left;
+    font-size: 16px;
+  }
+  
+  .details p {
+    margin: 5px 0;
+  }
+  
+  .submit-button {
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    align-self: flex-start; /* Align button to the left */
+  }
+  
+  .submit-button:hover {
+    background: #0056b3;
+  }
+  
+  /* Mobile styles */
+  @media (max-width: 600px) {
+    .admin-container {
+      padding: 15px;
+    }
+  
+    .header h2 {
+      font-size: 20px;
+    }
+  
+    .booking-list {
+      gap: 15px;
+    }
+  
+    .booking-card {
+      padding: 10px;
+    }
+  
+    .card-container {
+      padding: 15px;
+    }
+  
+    .details p {
+      font-size: 14px;
+    }
+  
+    .submit-button {
+      padding: 8px 12px;
+    }
+  }
+  
