@@ -15,6 +15,19 @@ const Slotform: NextPage = () => {
    const [weighData, setweighData] = useState('');
    const [ageData, setageData] = useState('');
  
+   const [showWarning, setShowWarning] = useState(false);
+   
+   
+   const handleChange = (value) => {
+    setweighData(value);
+    if (value === 'no') {
+      setShowWarning(true);
+    } else {
+      setShowWarning(false);
+    }
+  };
+
+
 
    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
      e.preventDefault();
@@ -38,11 +51,15 @@ const Slotform: NextPage = () => {
      setName("");
       setweighData("");
       setageData("");
+      
    };
 
    return (
      <div className="container">
 <Image src={logo} alt="Logo" width={100} height={100} />
+<p ><strong>TELL US MORE ABOUT YOURSELF</strong></p>
+
+
 <form onSubmit={handleSubmit}>
          <label htmlFor="name">Name:</label>
          <input
@@ -75,7 +92,7 @@ const Slotform: NextPage = () => {
            required
          />
 
-<p>Is your weight below 120kg?</p>
+<p>Do you weigh below 120kg?</p>
 <div className="radio-group">
   <label>
     <input
@@ -83,7 +100,7 @@ const Slotform: NextPage = () => {
       name="weighquery"
       value="yes"
       checked={weighData === 'yes'}
-      onChange={(e) => setweighData(e.target.value)}
+      onChange={(e) => handleChange(e.target.value)}
     />
     Yes
   </label>
@@ -93,14 +110,20 @@ const Slotform: NextPage = () => {
       name="weighquery"
       value="no"
       checked={weighData === 'no'}
-      onChange={(e) => setweighData(e.target.value)}
+      onChange={(e) => handleChange(e.target.value)}
     />
     No
   </label>
+  
 </div>
-
+{showWarning && (
+        <p className="warning" style={{ color: 'red', fontSize: '12px' }}>
+          Warning: Contact Our Support Team
+        </p>
+      )}
 <p>Are you over 18?</p>
 <div className="radio-group">
+
   <label>
     <input
       type="radio"

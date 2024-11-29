@@ -1,16 +1,21 @@
-import Slotform from "./slotform/SlotForm";
-import Calendar from "./Components/Calendar";
-import AdminViewPage from "./admin/page";
+'use client'
+
+import { useSearchParams } from 'next/navigation';
+import Calendar from './Components/Calendar';
+import AdminViewPage from './admin/page';
+// import Home from './Components/Home';
 
 
 const Page = () => {
+  const searchParams = useSearchParams();
+  const isAdmin = searchParams.get('isadmin') === 'true';
+
   return (
     <div>
-      <h1>Slot Booking</h1>
-      {/* <Calendar /> */}
-      <AdminViewPage/>
+      
+      {isAdmin ? <AdminViewPage /> : <Calendar />}
     </div>
   );
-};  
+};
 
 export default Page;
