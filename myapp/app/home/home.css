@@ -1,0 +1,138 @@
+/* Main container */
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  font-family: 'Arial', sans-serif;
+  background-color: #fff;
+  min-height: 100vh;
+}
+
+/* Header styles */
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.back-button {
+  font-size: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 24px;
+  color: #333;
+}
+
+/* Card section */
+.card {
+  background: linear-gradient(90deg, #ffeb99, #fff);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.card .slots {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+}
+
+.card .availability {
+  font-size: 16px;
+  color: #555;
+  margin-top: 8px;
+}
+
+.card .info {
+  margin-top: 16px;
+  background: #000;
+  color: #fff;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.card .info span {
+  display: block;
+  font-size: 12px;
+}
+
+.card .info .stars {
+  margin-top: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card .info .stars div {
+  width: 16px;
+  height: 16px;
+  background-color: #ffd700;
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+  margin-right: 4px;
+}
+
+/* Book Now button */
+.book-now {
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 16px auto;
+  display: block;
+}
+
+/* What's Included section */
+.included-section {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.included-section h3 {
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.included-section .icons {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 20px;
+}
+
+.included-section .icon {
+  text-align: center;
+}
+
+.included-section .icon .circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #e0e0e0;
+  margin: 0 auto 8px;
+}
+
+.included-section .icon span {
+  font-size: 12px;
+  color: #555;
+}

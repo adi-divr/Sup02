@@ -1,48 +1,36 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation"; // Updated import
- import "./calendar.css";
+import { useRouter } from "next/navigation"; // For routing
 import Image from "next/image";
 import logo from "../../public/assets/logo.png";
+import "./calendar.css";
 
 const Calendar = () => {
-  const [selectedDate, setSelectedDate] = useState("");
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
-  const router = useRouter(); // From `next/navigation`
+  const router = useRouter();
+
+  const daysInMonth = (month: number, year: number) => {
+    return new Date(year, month + 1, 0).getDate(); // Returns the last day of the month
+  };
+
+
+
+
 
   const handleDateClick = (day: number) => {
     const date = new Date(currentYear, currentMonth, day);
-    const formattedDate = date.toISOString().split("T")[0]; // Format: YYYY-MM-DD
-    setSelectedDate(formattedDate);
+    const formattedDate = date.toLocaleDateString("en-CA"); // Format: YYYY-MM-DD
 
-    // Wait briefly to show the selected date before navigating
-    setTimeout(() => {
-      router.push("/slotform"); // Use the correct path to your slot form
-    }, 500);
+    // Navigate to the Slotbooking page with the selected date as a query parameter
+    router.push(`/slotbooking?selectedDate=${formattedDate}`);
   };
 
-  const daysInMonth = (month: number, year: number) => {
-    return new Date(year, month + 1, 0).getDate(); // Returns last day of the month
-  };
 
-  const renderCalendar = () => {
-    const days = Array.from(
-      { length: daysInMonth(currentMonth, currentYear) },
-      (_, i) => i + 1
-    );
 
-    return days.map((day) => (
-      <button
-        key={day}
-        className="calendar-day"
-        onClick={() => handleDateClick(day)}
-      >
-        {day}
-      </button>
-    ));
-  };
+  
+
 
   const handlePreviousMonth = () => {
     if (currentMonth === 0) {
@@ -77,6 +65,23 @@ const Calendar = () => {
     "December",
   ];
 
+  const renderCalendar = () => {
+    const days = Array.from(
+      { length: daysInMonth(currentMonth, currentYear) },
+      (_, i) => i + 1
+    );
+
+    return days.map((day) => (
+      <button
+        key={day}
+        className="calendar-day"
+        onClick={() => handleDateClick(day)}
+      >
+        {day}
+      </button>
+    ));
+  };
+
   return (
     <div className="calendar-page">
       <div className="calendar-header-logo">
@@ -96,16 +101,13 @@ const Calendar = () => {
           </div>
         </div>
         <div className="calendar-grid">{renderCalendar()}</div>
-        <div className="calendar-footer">
-          <button onClick={() => alert("Canceled")}>Cancel</button>
-          <button>OK</button>
-        </div>
       </div>
     </div>
   );
+};
 
-}
 export default Calendar;
+
 
 // import React, { useState } from "react";
 // import "./calendar.css";

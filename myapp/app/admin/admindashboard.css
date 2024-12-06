@@ -1,4 +1,4 @@
-.admin-container {
+/* .admin-container {
     font-family: Arial, sans-serif;
     padding: 20px;
     display: flex;
@@ -24,7 +24,9 @@
     flex-direction: column;
     gap: 20px;
     width: 100%;
-    max-width: 900px; /* Maximum width for larger screens */
+    max-width: 900px; 
+   
+     align-content: center;
   }
   
   .booking-card {
@@ -64,14 +66,13 @@
     border-radius: 5px;
     padding: 10px 15px;
     cursor: pointer;
-    align-self: flex-start; /* Align button to the left */
+    align-self: flex-start; 
   }
   
   .submit-button:hover {
     background: #0056b3;
   }
   
-  /* Mobile styles */
   @media (max-width: 600px) {
     .admin-container {
       padding: 15px;
@@ -100,5 +101,92 @@
     .submit-button {
       padding: 8px 12px;
     }
+  }
+ 
+
+   */
+
+   .admin-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    text-align: center; /* Ensures everything inside admin-container is centered */
+  }
+  
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .logo {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin: 0;
+    font-weight: bold;
+  }
+  
+  .booking-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .booking-card {
+    width: 60%;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .card-details {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 15px;
+  }
+  
+  .card-details p {
+    margin: 5px 0;
+  }
+  
+  .next-button {
+    align-self: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .next-button img {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .error {
+    color: red;
+    text-align: center;
+    margin-top: 20px;
   }
   
