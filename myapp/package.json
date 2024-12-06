@@ -2,7 +2,11 @@
   "name": "myapp",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
+ 
+ "homepage": "https://adi-divr.github.io/Sup02",
+"scripts": {
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d out",
     "dev": "next dev",
     "build": "next build",
     "export": "next build && next export",

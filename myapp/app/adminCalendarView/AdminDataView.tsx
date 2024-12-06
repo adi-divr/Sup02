@@ -75,7 +75,7 @@ import "./adminviewdata.css";
 
 type SlotDetails = {
   name: string;
-  phone: string;
+  number: string;
 };
 
 type ApiResponse = {
@@ -87,7 +87,7 @@ const AdminDataView = () => {
   const [totalSlots, setTotalSlots] = useState<number>(0);
   const [details, setDetails] = useState<SlotDetails[]>([]);
   const searchParams = useSearchParams();
-  const selectedDate = searchParams.get("date") || ""; 
+  const selectedDate = searchParams?.get("date") || ""; 
 
   useEffect(() => {
     const fetchData = async () => {
@@ -101,7 +101,7 @@ const AdminDataView = () => {
           setTotalSlots(data.totalSlots || 0); 
           setDetails(Array.isArray(data.details) ? data.details : []); 
         } else {
-          console.error("API Error:", data.message || "Unknown error");
+          console.error("API Error:", data || "Unknown error");
         }
       } catch (error) {
         console.error("Error fetching API data:", error);

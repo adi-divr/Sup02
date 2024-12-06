@@ -12,7 +12,7 @@ import { useRouter } from "next/navigation";
 
 const Slotbooking = () => {
   const searchParams = useSearchParams();
-  const selectedDate = searchParams.get("selectedDate"); 
+  const selectedDate = searchParams?.get("selectedDate"); 
   const [slots, setSlots] = useState(0);
   const router = useRouter();
 

@@ -12,13 +12,15 @@ interface BookingData {
   age: string;
   slot: string;
   ddmm: string;
+  number:string;
+  date:string;
 }
 
 const ConfirmAdmin = () => {
   const [bookings, setBookings] = useState<BookingData[]>([]);
   const [error, setError] = useState("");
   const searchParams = useSearchParams();
-  const slotParam = searchParams.get("slot");
+  const slotParam = searchParams?.get("slot");
   //const dateParam = searchParams.get("dateParam");
 
   useEffect(() => {
@@ -50,9 +52,15 @@ const ConfirmAdmin = () => {
               date:row[7] || ""
             }))
           );
-        } catch (err: unknown) {
+        }catch (err: unknown) {
           console.error(err);
-          setError(err.message);
+        
+          // Check if err is an object and has a message property
+          if (err instanceof Error) {
+            setError(err.message);
+          } else {
+            setError('An unexpected error occurred');
+          }
         }
       };
 

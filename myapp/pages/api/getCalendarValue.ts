@@ -26,14 +26,21 @@ export default async function GetSlots(req: NextApiRequest, res: NextApiResponse
 
     const rows = sheetDataResponse.data.values || [];
     const slots: Record<string, number> = {};
-
+///////////////////type error
     rows.forEach((row) => {
-      const [,, bookingDate, slotsCount] = row; // Assuming date is in column C (index 2), slots in column D
-      if (bookingDate && bookingDate.startsWith(`${year}-${month.padStart(2, "0")}`)) {
+      const [, , bookingDate, slotsCount] = row; // Assuming date is in column C (index 2), slots in column D
+    
+      // Ensure month is treated as a string
+      const monthString = Array.isArray(month) ? month[0] : month;
+    
+      if (
+        bookingDate &&
+        bookingDate.startsWith(`${year}-${monthString.padStart(2, "0")}`)
+      ) {
         slots[bookingDate] = (slots[bookingDate] || 0) + parseInt(slotsCount || "0", 10);
       }
     });
-
+/////////////////////////type error
     res.status(200).json({ slots });
   } catch (error) {
     console.error("Error fetching slots:", error);
