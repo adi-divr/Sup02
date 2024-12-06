@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useSearchParams } from "next/navigation"; // Import for reading query parameters
+import { useSearchParams } from "next/navigation"; 
 import Image from "next/image";
 import logo from "../../public/assets/logo.png";
 import "./slotbooking.css";
@@ -11,8 +11,8 @@ import { useRouter } from "next/navigation";
 
 
 const Slotbooking = () => {
-  const searchParams = useSearchParams(); // Retrieve query parameters
-  const selectedDate = searchParams.get("selectedDate"); // Get the 'selectedDate' query parameter
+  const searchParams = useSearchParams();
+  const selectedDate = searchParams.get("selectedDate"); 
   const [slots, setSlots] = useState(0);
   const router = useRouter();
 

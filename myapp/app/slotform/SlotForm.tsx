@@ -14,26 +14,26 @@ const Slotform: NextPage = () => {
    const [weighData, setweighData] = useState('');
    const [ageData, setageData] = useState('');
    const [currentFormIndex, setCurrentFormIndex] = useState(0);
-   const [formData, setFormData] = useState([]); // Track form data for multiple forms
+   const [formData, setFormData] = useState([]); 
 
    const searchParams = useSearchParams(); 
    const router = useRouter();
 
    const selected = searchParams.get("selectedDate");
-   const slots = Number(searchParams.get("slots")); // Parse slots as a number
+   const slots = Number(searchParams.get("slots"));
 
    // Handle form field changes
    const handleChange = (value) => {
      setweighData(value);
      if (value === 'no') {
-       // Logic to show warning if needed
+       
      }
    };
 
    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
      e.preventDefault();
      
-     // Collect the data from the form and add it to the formData array
+     
      const currentForm = { name, mail, number, weighData, ageData };
      setFormData((prevFormData) => [...prevFormData, currentForm]);  // Add the current form's data to the array
 
@@ -41,14 +41,13 @@ const Slotform: NextPage = () => {
        // Go to the next form
        setCurrentFormIndex(currentFormIndex + 1);
      } else {
-       // All forms are filled, submit the data
-       // Logic to navigate or submit the data after all forms are filled
+     
        sessionStorage.setItem('formData', JSON.stringify([...formData, currentForm])); // Ensure all data is saved
        sessionStorage.setItem('slotAndDate', JSON.stringify({ selectedDate: selected, slots })); // Save the selected date and slots
        router.push(`/confirmPage`); // Navigate to the confirmation page
      }
 
-     // Clear the form data for the next form
+     
      setMail("");
      setMobile("");
      setName("");
@@ -60,7 +59,7 @@ const Slotform: NextPage = () => {
      if (formData.length > 0) {
        sessionStorage.setItem('formData', JSON.stringify(formData));
      }
-   }, [formData]); // This ensures that formData is always saved in sessionStorage when it changes
+   }, [formData]); 
 
    return (
      <div className="container">
@@ -148,7 +147,7 @@ const Slotform: NextPage = () => {
            </label>
          </div>
 
-         {/* Render Next or Submit button based on the current form index */}
+        
          {currentFormIndex + 1 < slots ? (
            <button type="submit">Next</button>
          ) : (

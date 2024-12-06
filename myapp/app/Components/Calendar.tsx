@@ -12,7 +12,7 @@ const Calendar = () => {
   const router = useRouter();
 
   const daysInMonth = (month: number, year: number) => {
-    return new Date(year, month + 1, 0).getDate(); // Returns the last day of the month
+    return new Date(year, month + 1, 0).getDate(); 
   };
 
 
@@ -23,7 +23,6 @@ const Calendar = () => {
     const date = new Date(currentYear, currentMonth, day);
     const formattedDate = date.toLocaleDateString("en-CA"); // Format: YYYY-MM-DD
 
-    // Navigate to the Slotbooking page with the selected date as a query parameter
     router.push(`/slotbooking?selectedDate=${formattedDate}`);
   };
 

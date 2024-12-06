@@ -80,14 +80,14 @@ type SlotDetails = {
 
 type ApiResponse = {
   totalSlots: number;
-  details: SlotDetails[] | undefined; // Mark as potentially undefined
+  details: SlotDetails[] | undefined; 
 };
 
 const AdminDataView = () => {
   const [totalSlots, setTotalSlots] = useState<number>(0);
   const [details, setDetails] = useState<SlotDetails[]>([]);
   const searchParams = useSearchParams();
-  const selectedDate = searchParams.get("date") || ""; // Get the selected date from query parameters
+  const selectedDate = searchParams.get("date") || ""; 
 
   useEffect(() => {
     const fetchData = async () => {
@@ -98,9 +98,8 @@ const AdminDataView = () => {
         const data: ApiResponse = await response.json();
 
         if (response.ok) {
-          console.log("API Response:", data); // Debugging log
-          setTotalSlots(data.totalSlots || 0); // Ensure totalSlots is always a number
-          setDetails(Array.isArray(data.details) ? data.details : []); // Ensure details is always an array
+          setTotalSlots(data.totalSlots || 0); 
+          setDetails(Array.isArray(data.details) ? data.details : []); 
         } else {
           console.error("API Error:", data.message || "Unknown error");
         }

@@ -107,7 +107,6 @@ const ConfirmAdmin = () => {
   return (
     <div className="confirmation-container">
       <header className="confirmation-header">
-        {/* <button className="back-button">←</button> */}
         <Image src={logo} alt="SUP IN KOCHI Logo" className="logo" />
         {/* <div className="notification">
           <span className="notification-badge">4</span>

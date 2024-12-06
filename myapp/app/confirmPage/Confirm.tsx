@@ -6,19 +6,16 @@ import logo from '../../public/assets/logo.png';
 import { useRouter } from "next/navigation";
 
 const Confirm = () => {
-    // Retrieve data from session storage
     const router = useRouter();
-    const formData = JSON.parse(sessionStorage.getItem('formData') || '[]'); // Parse as an array
+    const formData = JSON.parse(sessionStorage.getItem('formData') || '[]'); 
     const slotAndDate = JSON.parse(sessionStorage.getItem('slotAndDate') || '{}');
 
-    // Extract first name from the formData array
     const firstName = formData[0]?.name || 'N/A';
   console.log(formData)
-    const { slots, selectedDate } = slotAndDate; // Extract slots and date
+    const { slots, selectedDate } = slotAndDate; 
 
-    // Placeholder price calculation
     const calculatePrice = (slots: number) => {
-        return slots * 1500; // Example: 1500 per slot
+        return slots * 1500; 
     };
 
     const price = calculatePrice(slots || 0);
@@ -30,11 +27,10 @@ const Confirm = () => {
       }));
     
 const handleClick = async () => {
-   // const submitData = [formData , slotAndDate] 
 
    const payload = {
-    formData: groupedData, // Use grouped data if slots are assigned
-    slotAndDate, // Include slot and date information
+    formData: groupedData,
+    slotAndDate, 
 };
   const checkData = formData[0]
     const response = await fetch('/api/submit', {

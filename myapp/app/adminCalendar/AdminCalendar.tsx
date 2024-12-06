@@ -37,13 +37,9 @@ const Calendar = () => {
   }, [currentMonth, currentYear]);
 
   const handleDateClick = (day: number) => {
-    // Format the date as YYYY-MM-DD
     const formattedDate = `${currentYear}-${String(currentMonth + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
 
-    // Log for debugging
-    console.log(`Selected date: ${formattedDate}`);
-
-    // Navigate to adminCalendarView with the selected date
+  
     router.push(`/adminCalendarView?date=${formattedDate}`);
   };
 
@@ -89,15 +85,15 @@ const Calendar = () => {
     );
 
     return days.map((day) => {
-      const date = `${currentYear}-${String(currentMonth + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`; // Correct date formatting
-      const slots = slotsData[date] || 0; // Get slots for this date
+      const date = `${currentYear}-${String(currentMonth + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`; 
+      const slots = slotsData[date] || 0; 
 
       return (
         <button
           key={day}
           className="calendar-day-new"
           onClick={() => handleDateClick(day)}
-          style={{ background: "white" }} // Inline style to override background color
+          style={{ background: "white" }} 
         >
           {day}
           <div className="slot-count-new">{slots > 0 ? slots : ""}</div>
