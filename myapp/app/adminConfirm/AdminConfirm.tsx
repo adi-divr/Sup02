@@ -19,7 +19,7 @@ const ConfirmAdmin = () => {
   const [error, setError] = useState("");
   const searchParams = useSearchParams();
   const slotParam = searchParams.get("slot");
-  const dateParam = searchParams.get("dateParam");
+  //const dateParam = searchParams.get("dateParam");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -50,7 +50,7 @@ const ConfirmAdmin = () => {
               date:row[7] || ""
             }))
           );
-        } catch (err: any) {
+        } catch (err: unknown) {
           console.error(err);
           setError(err.message);
         }

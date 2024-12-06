@@ -32,7 +32,7 @@ const handleClick = async () => {
     formData: groupedData,
     slotAndDate, 
 };
-  const checkData = formData[0]
+ // const checkData = formData[0]
     const response = await fetch('/api/submit', {
         method: 'POST',
         headers: {
@@ -42,7 +42,7 @@ const handleClick = async () => {
         body: JSON.stringify( payload)
       });
         const data = await response.json();
-       // console.log(data)
+        console.log(data)
 
        router.push('/checkout')
 }

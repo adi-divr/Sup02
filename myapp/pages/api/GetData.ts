@@ -68,7 +68,7 @@ export default async function GetData(req: NextApiRequest, res: NextApiResponse)
         const rows = response.data.values;
 
         if (rows?.length) {
-            const groupedData: Record<string, any[]> = {};
+            const groupedData: Record<string, unknown[]> = {};
 
             rows.forEach(row => {
                 const slot = row[5];  

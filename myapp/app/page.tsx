@@ -5,7 +5,6 @@ import Calendar from './Components/Calendar';
 import AdminViewPage from './admin/page';
 // import Home from './Components/Home';
 // import HomePage from './home/page'
-import AdminCalendarPage from './adminCalendar/page';
 
 
 const Page = () => {

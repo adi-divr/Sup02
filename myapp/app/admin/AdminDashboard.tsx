@@ -134,8 +134,12 @@ const AdminView = () => {
         }));
 
         setBookings(formattedData);
-      } catch (err: any) {
-        setError(err.message);
+      } catch (err) {
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError("An unknown error occurred");
+        }
       }
     };
 

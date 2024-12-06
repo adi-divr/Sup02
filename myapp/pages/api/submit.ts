@@ -144,13 +144,13 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { google } from 'googleapis';
 
-type SheetForm = {
-    name: string;
-    mail: string;
-    number: string;
-    ageData: string;
-    weighData: string;
-};
+// type SheetForm = {
+//     name: string;
+//     mail: string;
+//     number: string;
+//     ageData: string;
+//     weighData: string;
+// };
 
 export default async function Submit(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== 'POST') {
